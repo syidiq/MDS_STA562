@@ -10,7 +10,7 @@ name: R
 
 on:
   schedule:
-  - cron: "* * * * *"
+  - cron: "16 * * * *"
 
 jobs:
   build:
