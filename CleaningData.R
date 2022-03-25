@@ -33,6 +33,7 @@ text3 <- gsub("\\s+$", "", text3)
 text3 <- gsub("[ |\t]+", " ", text3)
 head(text3)
 
+  
 # Set Stopwords
 stpword_id <- stopwords::stopwords("id", source = "nltk")
 stpword_en <- stopwords::stopwords("en", source = "nltk")
