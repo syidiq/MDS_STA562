@@ -1,33 +1,5 @@
 
-
-# Loading Library
-library(tidyverse)
-library(leaps)
-library(skimr)
-library(ggplot2)
-library(dplyr)
-library(stopwords)
-library(ggwordcloud)
-library(tidytext)
-
-
-# Create API Database ElephanSQL ------------------------
-
-library(RPostgreSQL)
-
-drv <- dbDriver("PostgreSQL")
-
-dbnames <- 'ugrcwdha'
-pass <- '37hjgVJNTjCdx6ncq1A6NmoWhRExsrLi'
-hosts <- 'topsy.db.elephantsql.com'
-
-con <- dbConnect(drv,
-                 dbname = dbnames, 
-                 host = hosts,
-                 port = 5432,
-                 user = dbnames,
-                 password = pass
-)
+Tweet_Posting <- function(con, twitter_token) {
 
 # Mengabil data
 
@@ -58,15 +30,39 @@ wordcloud_img <- ggplot(
   )
 ) +
   geom_text_wordcloud_area() +
-  scale_size_area(max_size = 24) +
+  scale_size_area(max_size = 30) +
   theme_minimal()
 
-## Saving Gambar
+# Saving Gambar
 file <- tempfile( fileext = ".png")
 ggsave(file, plot = wordcloud_img, device = "png", dpi = 144, width = 8, height = 8, units = "in" )
 
-## Membuat Hashtag
+# Membuat Hashtag
 
-hashtag <- c("ManajemenData","ManajemenDataStatistika", "github","rvest","rtweet", "ElephantSQL", "SQL", "bot", "opensource", "ggplot2","PostgreSQL","RPostgreSQL")
+hashtag <- c("ManajemenData","ManajemenDataStatistika", "github", "ElephantSQL", "SQL", "bot", "opensource", "PostgreSQL")
 
 
+# Membuat Pesan Detailstatus
+
+trends <- df_tweet2 %>% filter(date==Sys.Date())
+
+status_details <- paste0( "#BotTweet_STA562","\n",
+                          "ini rangkuman word" , "\n",
+                          trends$trend[1]," yang menjadi Top 1 Trend Indonesia tanggal ", 
+                          Sys.Date(), " dengan jumlah tweet sebanyak : ", trends$tweet_volume[1], " Tweet ",
+                          "\n",
+                          "\n",
+                          paste0("#",hashtag, collapse=" ")
+)
+
+status_details
+
+
+## Posting to Twitter
+
+rtweet::post_tweet(
+  status = status_details,
+  media = file
+)
+
+}
