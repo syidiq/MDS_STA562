@@ -10,15 +10,15 @@ name: run
 
 on:
   schedule:
-  - cron: "0 17,18,19 * * *"
+  - cron: "0 * * * *"
 
 jobs:
   build:
     runs-on: macos-latest
-    strategy:
+  strategy:
       matrix:
         r-version: ['4.1.1']
-
+    
     steps:
       - uses: actions/checkout@v2
       - name: Set up R ${{ matrix.r-version }}
