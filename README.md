@@ -1,2 +1,2 @@
 # MDS_STA562
-Twitter  Bot, Dengan menggunakan database @ElephantSQL untuk menyipan data yanng di scraping dan hasil analisisinya akan di posting ke twitter
+Ini adalah Twitter Bot untuk posting data Top 1 Tren Indonesia. Database yang discraping disimpan di @ElephantSQL. Hasilnya dianalisis dan diposting ke twiteer melalui akun @MsaStat.
