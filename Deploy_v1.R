@@ -53,10 +53,10 @@ con <- dbConnect(drv,
 
 ## batas ==================================================================
  
-pht = getSourceEditorContext()$path
-pht = gsub("/Deploy_v1.R", "", pht)
+#pht = getSourceEditorContext()$path
+#pht = gsub("/Deploy_v1.R", "", pht)
 
-setwd(pht)
+setwd(getwd())
 source('ScrapingData.R')
 source('CleaningData.R')
 source('TweetPosting.R')
