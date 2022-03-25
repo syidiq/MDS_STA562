@@ -1,2 +1,2 @@
 # MDS_STA562
-Ini adalah Twitter Bot untuk posting data Top 1 Tren Indonesia. Database yang discraping disimpan di @ElephantSQL. Hasilnya dianalisis dan diposting ke twiteer melalui akun @MsaStat.
+Ini adalah Twitter Bot yang memposting data Top 1 Tren Indonesia. Prosesnya dimulai dari scraping 100 tweet trending di Indonesia. Lalu dilakukan cleaning data. Databasenya disimpan di @ElephantSQL, meliputi Tweet_Top1Tren, Top1Tren_byDay, dan Tweet_text_split. Selanjutnya data dianalisis dan diposting ke twitter yang terdiri dari topik Top 1 Tren Indonesia, tanggal, jumlah tweet, plot word-frequency, dan hastag. Proses ini dilakukan secara otomatis setiap jam 12 malam. Hasilnya dapat dilihat melalui akun twitter @MsaStat.
