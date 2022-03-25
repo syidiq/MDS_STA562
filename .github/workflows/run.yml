@@ -10,7 +10,7 @@ name: run
 
 on:
   schedule:
-  - cron: "* * * * *"
+  - cron: "0 17,18,19 * * *"
 
 jobs:
   build:
