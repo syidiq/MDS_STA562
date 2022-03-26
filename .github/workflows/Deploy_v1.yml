@@ -17,11 +17,17 @@ on:
 jobs:
   build:
     runs-on: macos-latest
+    strategy:
+      matrix:
+        r-version: ['4.1.1']
 
 
     steps:
       - uses: actions/checkout@v2
-      - uses: r-lib/actions/setup-r@master
+      - name: Set up R ${{ matrix.r-version }}
+        uses: r-lib/actions/setup-r@f57f1301a053485946083d7a45022b278929a78a
+        with:
+          r-version: ${{ matrix.r-version }}
       - name: Install tidyverse package
         run: Rscript -e 'install.packages("tidyverse", dependencies = TRUE)'
       - name: Install leaps package
