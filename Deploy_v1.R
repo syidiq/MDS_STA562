@@ -9,6 +9,7 @@ library(stopwords)
 library(ggwordcloud)
 library(tidytext)
 library(rstudioapi)
+library(RColorBrewer)
 
 
 # Create Twitter token API --------------------------------
