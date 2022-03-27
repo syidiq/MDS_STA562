@@ -48,5 +48,7 @@ jobs:
         run: Rscript -e 'install.packages("rstudioapi", dependencies = TRUE)'
       - name: Install ggwordcloud package
         run: Rscript -e 'install.packages("ggwordcloud", dependencies = TRUE)'
+      - name: Install RColorBrewer package
+        run: Rscript -e 'install.packages("RColorBrewer", dependencies = TRUE)'
       - name: Create and post tweet
         run: Rscript Deploy_v1.R
