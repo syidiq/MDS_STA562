@@ -12,7 +12,7 @@ library(rstudioapi)
 library(RColorBrewer)
 
 
-# Create Twitter token API --------------------------------
+# Create Twitter token API ------------------------------------
 
 library(rtweet)
 
