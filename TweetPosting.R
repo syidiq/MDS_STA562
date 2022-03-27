@@ -22,16 +22,9 @@ words
 
 # Ploting
 
-wordcloud_img <- ggplot(
-  words,
-  aes(
-    label = word, size = n,
-    color = factor(sample.int(10, nrow(words), replace = TRUE))
-  )
-) +
-  geom_text_wordcloud_area() +
-  scale_size_area(max_size = 30) +
-  theme_minimal()
+wordcloud_img <- ggwordcloud(words$word, words$n , min.freq = max(n)/2,
+                             max.words = Inf, random.order = FALSE, random.color = TRUE,
+                             rot.per = 0.35, colors = brewer.pal(8, "Dark2"))
 
 # Saving Gambar
 file <- tempfile( fileext = ".png")
