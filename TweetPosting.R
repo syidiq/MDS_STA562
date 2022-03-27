@@ -22,7 +22,7 @@ words
 
 # Ploting
 
-wordcloud_img <- ggwordcloud(words$word, words$n , min.freq = max(n)/2,
+wordcloud_img <- ggwordcloud(words$word, words$n , min.freq = 3,
                              max.words = Inf, random.order = FALSE, random.color = TRUE,
                              rot.per = 0.35, colors = brewer.pal(8, "Dark2"))
 
