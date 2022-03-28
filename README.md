@@ -4,7 +4,9 @@ Ini adalah Twitter Bot yang memposting data Top 1 Tren Indonesia. Prosesnya dimu
 Semua ini dikerjakna oleh:
 
 G1501211009 Muhammad Syidiq Abdjanur
+
 G1501211032 Madania Tetiani Agusta
+
 G1501211068 Wa Ode Rona Freya
 
 Berikut ER Databse pada ElephantSQL
