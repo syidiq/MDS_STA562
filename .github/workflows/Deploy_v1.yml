@@ -10,7 +10,7 @@ name: Deploy_v1
 
 on:
   schedule:
-  - cron: "5,10,20,30,40 13,14 * * *"
+  - cron: "0 5,13 * * *"
 
 jobs:
   build:
