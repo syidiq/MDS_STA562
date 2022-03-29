@@ -10,7 +10,7 @@ name: Deploy_v1
 
 on:
   schedule:
-  - cron: "10,20,30,40 8,9 * * *"
+  - cron: "5,10,20,30,40 13,14 * * *"
 
 jobs:
   build:
@@ -21,34 +21,14 @@ jobs:
 
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Set up R ${{ matrix.r-version }}
         uses: r-lib/actions/setup-r@f57f1301a053485946083d7a45022b278929a78a
         with:
           r-version: ${{ matrix.r-version }}
-      - name: Install tidyverse package
-        run: Rscript -e 'install.packages("tidyverse", dependencies = TRUE)'
-      - name: Install leaps package
-        run: Rscript -e 'install.packages("leaps", dependencies = TRUE)'
-      - name: Install skimr package
-        run: Rscript -e 'install.packages("skimr", dependencies = TRUE)'
-      - name: Install ggplot2 package
-        run: Rscript -e 'install.packages("ggplot2", dependencies = TRUE)'
-      - name: Install dplyr package
-        run: Rscript -e 'install.packages("dplyr", dependencies = TRUE)'
-      - name: Install stopwords package
-        run: Rscript -e 'install.packages("stopwords", dependencies = TRUE)'
-      - name: Install rtweet package
-        run: Rscript -e 'install.packages("rtweet", dependencies = TRUE)'
-      - name: Install RPostgreSQL package
-        run: Rscript -e 'install.packages("RPostgreSQL", dependencies = TRUE)'
-      - name: Install tidytext package
-        run: Rscript -e 'install.packages("tidytext", dependencies = TRUE)'
-      - name: Install rstudioapi package
-        run: Rscript -e 'install.packages("rstudioapi", dependencies = TRUE)'
-      - name: Install ggwordcloud package
-        run: Rscript -e 'install.packages("ggwordcloud", dependencies = TRUE)'
-      - name: Install RColorBrewer package
-        run: Rscript -e 'install.packages("RColorBrewer", dependencies = TRUE)'
+      - name: Install dependencies
+        run: |
+          install.packages(c("tidyverse", "leaps", "skimr", "ggplot2", "dplyr", "stopwords", "rtweet", "RPostgreSQL", "tidytext", "rstudioapi", "ggwordcloud", "RColorBrewer"))
+        shell: Rscript {0}
       - name: Create and post tweet
         run: Rscript Deploy_v1.R
