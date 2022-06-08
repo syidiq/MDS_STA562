@@ -16,10 +16,10 @@ library(RColorBrewer)
 
 library(rtweet)
 
-API_Key <- 'JpJOayzuYTvhpnWAhuWOlf44V'
-API_Key_Secret <- '0ydxQ5M6k05qYfJON3MgqjnDIukX4IEAAXFWrLmhYA7uWNaPgs'
-Access_Token <- '1503956935615279106-j6OWD59SS8mxzA1U2mRPoTGYFgZRs2'
-Access_Token_Secret <- 'YfYwCbHe0fmZCd8NqcFqrhEFSolDpSFV7gt2a8XvGZbEn'
+API_Key <- Sys.getenv("TWITTER_API_KEY")
+API_Key_Secret <- Sys.getenv("TWITTER_API_KEY_SECRET")
+Access_Token <- Sys.getenv("TWITTER_ACCESS_TOKEN")
+Access_Token_Secret <- Sys.getenv("TWITTER_ACCESS_TOKEN_SECRET")
 
 
 
@@ -39,9 +39,9 @@ library(RPostgreSQL)
 
 drv <- dbDriver("PostgreSQL")
 
-dbnames <- 'ugrcwdha'
-pass <- '37hjgVJNTjCdx6ncq1A6NmoWhRExsrLi'
-hosts <- 'topsy.db.elephantsql.com'
+dbnames <- Sys.getenv("DB_DBNAMES")
+pass <- Sys.getenv("DB_PASS")
+hosts <- Sys.getenv("DB_HOSTS")
 
 con <- dbConnect(drv,
                  dbname = dbnames, 
