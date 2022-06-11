@@ -8,9 +8,10 @@
 
 name: Deploy_v1
 
-on:
-  schedule:
-  - cron: "0 5,13 * * *"
+on: 
+  [push]
+#  schedule:
+#  - cron: "0 5,13 * * *"
 
 jobs:
   build:
