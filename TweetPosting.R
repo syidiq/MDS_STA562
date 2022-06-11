@@ -16,7 +16,7 @@ df_tweet2 <- dbGetQuery(con, query1)
 head(df_tweet2)
 
 # Pivot Tabulasi Data
-words <- df_tweet2 %>% count(word, sort=TRUE) 
+words <- df_tweet2 %>% filter(date==Sys.Date()) %>% count(word, sort=TRUE) 
 words
 
 
